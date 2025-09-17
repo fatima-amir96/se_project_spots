@@ -12,7 +12,7 @@ Reponsive Design
 
 This webpage is deployed to Github Pages.
 
-Deployment Link:
+Deployment Link: https://github.com/fatima-amir96/se_project_spots.git
 
 **Intro**
 
