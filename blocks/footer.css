@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+  padding: 34px 0 20px;
+}
+
+.footer__copyright {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: #212121b2;
+  font-size: 14px;
+  font-weight: 400px;
+  color: #838383; /* or your preferred color */
+  text-align: center; /* or left/right as needed */
+  margin: 60px 0 0;
+  padding-bottom: 20px;
+}
