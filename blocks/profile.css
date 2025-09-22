@@ -7,7 +7,7 @@
   font-weight: 500;
 }
 .profile__avatar {
-  margin: 0 30px 12px 0;
+  margin: 0 20px 12px 0;
   height: 190px;
   width: 190px;
   border-radius: 8px;
@@ -24,6 +24,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
+  height: 20px;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -56,10 +57,10 @@
 }
 .profile__add-btn {
   margin-left: auto;
-  background-color: black;
+  background-color: #212121;
   color: #fcf5e5;
   border-radius: 8px;
-  width: 149px;
+  width: 288px;
   height: 52px;
   align-self: flex-end;
 }
@@ -89,10 +90,14 @@
     max-width: 288px;
   }
   .profile__column {
-    margin: 0 0 32px;
+    margin: 0 0 20px;
+    max-height: 100px;
   }
   .profile__description {
     margin: 0 0 20px;
     max-width: 288px;
+  }
+  .profile__edit-btn {
+    margin: 12px 0 0 0;
   }
 }
