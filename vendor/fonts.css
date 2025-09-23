@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-family: "Poppins";
   font-style: normal;
   /* Replace with the appropriate font weight */
   font-weight: 400;
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-family: "Poppins";
   font-style: medium;
   /* Replace with the appropriate font weight */
   font-weight: 500;
