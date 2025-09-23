@@ -7,7 +7,7 @@
   font-weight: 500;
 }
 .profile__avatar {
-  margin: 0 20px 12px 0;
+  margin: 0 20px 0 0;
   height: 190px;
   width: 190px;
   border-radius: 8px;
@@ -51,7 +51,6 @@
   border: none;
   font-size: 16px;
   font-weight: 500;
-  font-size: 16px;
   align-self: flex-start;
   gap: 8px;
 }
@@ -60,7 +59,7 @@
   background-color: #212121;
   color: #fcf5e5;
   border-radius: 8px;
-  width: 288px;
+  width: 157px;
   height: 52px;
   align-self: flex-end;
 }
@@ -83,6 +82,7 @@
   .profile__add-btn {
     margin: 0;
     align-self: center;
+    width: 288px;
   }
   .profile__name {
     font-size: 20px;
@@ -98,6 +98,6 @@
     max-width: 288px;
   }
   .profile__edit-btn {
-    margin: 12px 0 0 0;
+    margin: 12px auto 0;
   }
 }

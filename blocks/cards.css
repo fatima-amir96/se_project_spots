@@ -5,16 +5,17 @@
 .cards__list {
   list-style-type: none;
   padding: 0 20px;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, 413px);
   gap: 40px 20px;
   justify-content: center;
+  max-width: 1280px;
 }
 .cards::after {
   content: "";
   display: block;
-  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+
   margin: 0 75px; /* Adjust this value to match your content spacing */
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
 }

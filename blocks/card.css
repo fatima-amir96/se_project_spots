@@ -27,6 +27,7 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 20px 0 20px 0;
+  max-width: 413px;
 }
 .card__like-button {
   background-image: url(../images/Like-Icon.svg);
