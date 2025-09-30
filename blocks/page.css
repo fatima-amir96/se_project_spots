@@ -2,16 +2,9 @@
   background-color: #fcf5e5;
   min-height: 100vh;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 .page__section {
   max-width: 1280px;
   margin: 0 auto;
-}
-@font-face {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-style: normal;
-  /* Replace with the appropriate font weight */
-  font-weight: 400;
-  /* Replace with the correct file path */
-  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
 }

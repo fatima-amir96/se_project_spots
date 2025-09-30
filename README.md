@@ -14,6 +14,10 @@ This webpage is deployed to Github Pages.
 
 Deployment Link: https://github.com/fatima-amir96/se_project_spots.git
 
+You can view a short video about this project - Spots Project Webpage Build and introduction to project:
+
+https://drive.google.com/file/d/139jFD7Y05HRYzocHDT1oqywRa42tkTX3/view?usp=drive_link
+
 **Intro**
 
 This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
