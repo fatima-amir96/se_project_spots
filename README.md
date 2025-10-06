@@ -12,7 +12,8 @@ Reponsive Design
 
 This webpage is deployed to Github Pages.
 
-Deployment Link: https://github.com/fatima-amir96/se_project_spots.git
+Deployment Link: https://fatima-amir96.github.io/se_project_spots/index.html
+Repository Link: https://github.com/fatima-amir96/se_project_spots.git
 
 You can view a short video about this project - Spots Project Webpage Build and introduction to project:
 

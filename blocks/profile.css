@@ -60,6 +60,7 @@
 }
 .profile__edit-btn:hover {
   color: black;
+  opacity: 100%;
 }
 .profile__add-btn {
   margin-left: auto;
@@ -77,8 +78,7 @@
   align-items: center;
 }
 .profile__add-btn:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 627px) {
@@ -93,7 +93,7 @@
   .profile__avatar {
     margin-right: 0;
     height: 80px;
-
+    margin-bottom: 12px;
     width: 80px;
   }
   .profile__add-btn {
@@ -111,6 +111,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: fit-content;
   }
   .profile__description {
     margin: 0 0 20px;
