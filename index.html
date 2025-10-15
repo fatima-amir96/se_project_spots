@@ -106,6 +106,68 @@
       <footer class="footer">
         <p class="footer__copyright">© 2025 Fatima Amir</p>
       </footer>
+      <div class="modal">
+        <div class="modal__container">
+          <div class="modal__header">
+            <h2 class="modal__title">Edit Profile</h2>
+            <button type="button" class="modal__close-btn">
+              <img src="./images/close-btn.svg" alt="x_close-button" />
+            </button>
+          </div>
+          <form class="modal__form">
+            <label for="profile__name-input" class="modal__label">
+              Name
+              <input
+                id="profile__name-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your name"
+              />
+            </label>
+            <label for="profile__description-input" class="modal__label">
+              Description
+              <input
+                id="profile__description-input"
+                type="text"
+                class="modal__input"
+                placeholder="Describe yourself"
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal__is-opened">
+        <div class="modal__container">
+          <div class="modal__header">
+            <h2 class="modal__title">New Post</h2>
+            <button type="button" class="modal__close-btn">
+              <img src="./images/close-btn.svg" alt="x_close-button" />
+            </button>
+          </div>
+          <form class="modal__form">
+            <label for="card__image-input" class="modal__label">
+              Image Link
+              <input
+                id="card__image-input"
+                type="url"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+              />
+            </label>
+            <label for="profile__caption-input" class="modal__label">
+              Caption
+              <input
+                id="profile__caption-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your caption"
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
