@@ -106,7 +106,7 @@
       <footer class="footer">
         <p class="footer__copyright">© 2025 Fatima Amir</p>
       </footer>
-      <div class="modal">
+      <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <div class="modal__header">
             <h2 class="modal__title">Edit Profile</h2>
@@ -137,7 +137,7 @@
           </form>
         </div>
       </div>
-      <div class="modal modal__is-opened">
+      <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <div class="modal__header">
             <h2 class="modal__title">New Post</h2>
@@ -147,7 +147,7 @@
           </div>
           <form class="modal__form">
             <label for="card__image-input" class="modal__label">
-              Image Link
+              Image link
               <input
                 id="card__image-input"
                 type="url"
@@ -169,5 +169,6 @@
         </div>
       </div>
     </div>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
