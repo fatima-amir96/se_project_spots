@@ -1,7 +1,12 @@
+const profileNameElement = document.querySelector(".profile__name");
+const profileDescriptionElement = document.querySelector(
+  ".profile__description"
+);
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
+/*const editProfileForm = document.forms["editProfileForm"]*/
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile__name-input"
 );
@@ -15,20 +20,17 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 
 function openModal(modal) {
-  modal.classList.add("modal_is-opened"); // use class consistent with your CSS
+  modal.classList.add("modal_is-opened");
 }
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
-/*const newPostForm = newPostModal.querySelector(".modal__form");
-const newPostlinkInput = newPosteModal.querySelector("#profile__name-input");
-const newPostCapInput = newPostModal.querySelector(
-  "#profile__description-input"
-);*/
 
 editProfileBtn.addEventListener("click", () => {
-  const profileNameEle = document.querySelector(".profile__name");
-  const profileDescriptionEle = document.querySelector(".profile__description");
+  const profileNameElement = document.querySelector(".profile__name");
+  const profileDescriptionElement = document.querySelector(
+    ".profile__description"
+  );
 
   editProfileNameInput.value = profileNameEle.textContent;
   editProfileDescriptionInput.value = profileDescriptionEle.textContent;
@@ -63,8 +65,8 @@ newPostCloseBtn.addEventListener("click", () => {
 newPostForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
-  const inputLink = newPostForm.querySelector("#new-post-link-input");
-  const inputCap = newPostForm.querySelector("#new-post-caption-input");
+  const inputLink = newPostForm.querySelector("#card__image-input");
+  const inputCap = newPostForm.querySelector("#profile__caption-input");
 
   console.log("New Post Link:", inputLink.value);
   console.log("New Post Caption:", inputCap.value);
