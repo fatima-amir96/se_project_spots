@@ -1,7 +1,8 @@
+
 const initalCards = [
 
 {name: "Val Thorens"
-link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg}",
+link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"},
 
 
 {name: "Restaurant terrace"
@@ -46,6 +47,8 @@ const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
+
+// =========================
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
