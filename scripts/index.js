@@ -97,7 +97,7 @@ newPostForm.addEventListener("submit", (evt) => {
   closeModal(newPostModal);
 });
 
-initialCards.foreach(function (item) {
+initialCards.forEach(function (item) {
   console.log(item.name);
   console.log(item.link);
 });
