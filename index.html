@@ -31,18 +31,33 @@
           </button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list">
+          <ul class="cards__list"></ul>
+          <template id="card-template">
             <li class="card">
-              <img
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Val Thorens"
-                class="card__image"
-              />
+              <button class="card__button-delete" type="button"></button>
+              <img src="" alt="" class="card__image" />
               <div class="card__content">
-                <h2 class="card__title">Val Thorens</h2>
+                <h2 class="card__title"></h2>
                 <button type="button" class="card__like-button"></button>
               </div>
             </li>
+          </template>
+          <!--<uL id="cards__list ">
+              <template id="card-template">
+                 <li class="card">
+                <img
+                  src="#"
+                  alt=""
+                  class="card__image"
+                />
+                <div class="card__content">
+                  <h2 class="card__title">Restaurant terrace</h2>
+                  <button type="button" class="card__like-button"></button>
+                </div>
+              </li>
+            </template>
+             
+            </ul>
             <li class="card">
               <img
                 src="./images/2-photo-by-ceiline-from-pexels.jpg"
@@ -98,7 +113,7 @@
                 <button type="button" class="card__like-button"></button>
               </div>
             </li>
-          </ul>
+          -->
         </section>
       </main>
       <footer class="footer page__section">
@@ -164,6 +179,20 @@
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal_preview " id="preview-post-modal">
+        <div class="modal__image-container">
+          <button type="button" class="modal__close-btn_preview modal__close-btn">
+              <img src="./images/X-white.svg" alt="x_close-button-white" />
+            </button>
+            <img src="https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg" alt="" 
+            class="modal__image">
+            <p class="modal__caption">Golden Gate Bridge</p>
+          </div>
+          
         </div>
       </div>
     </div>
