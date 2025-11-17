@@ -8,6 +8,7 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
+  cursor: pointer;
 }
 .card__title {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -37,10 +38,13 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  opacity: 40%;
+  opacity: 0.4;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 .card__like-button:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .card__like-button_active {
@@ -62,6 +66,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
+  cursor: pointer;
 }
 
 .card__button-delete:hover {

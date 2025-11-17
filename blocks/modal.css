@@ -54,14 +54,12 @@
 .modal__caption {
   color: white;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  size: 20px;
+  font-size: 20px;
 
   bottom: 12px;
   left: 12px;
-  color: white;
-  font-size: 16px;
   margin: 0;
-  position: static;
+  position: absolute;
   border-radius: 8px;
 
   margin-top: 8px;
@@ -100,7 +98,7 @@
 
 .modal__close-btn:hover {
   cursor: pointer;
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .modal__header {
@@ -161,7 +159,7 @@
   background-color: #212121;
 }
 
-@media screen and (max-width: 627px) {
+@media screen and (max-width: 480px) {
   .modal__close-btn {
     top: 16px;
     right: 12px;
