@@ -1,3 +1,5 @@
+//pass setting onject to validation function passed in this file
+// open and close modal, modals opne when esc key is pressed, when user clicks outside modal
 // =========c o n s t================
 
 const initialCards = [
@@ -65,6 +67,7 @@ const previewImage = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__caption");
 const previewCloseBtn = previewModal.querySelector(".modal__close-btn_preview");
 
+const cardSubmitButton = newPostForm.querySelector(".button__inactive"); //change name for button to a modal modifer
 // =========m o d a l================
 
 function openModal(modal) {
@@ -155,11 +158,28 @@ newPostForm.addEventListener("submit", (evt) => {
 
   closeModal(newPostModal);
   newPostForm.reset();
+  disableButton(cardSubmitButton);
 });
 
 // ---- PREVIEW CLOSE ----
 previewCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
+});
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+});
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
 });
 
 // ========i n i t a l - c a r d s=================

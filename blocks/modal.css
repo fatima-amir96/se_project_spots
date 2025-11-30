@@ -124,6 +124,7 @@
   color: #212121b2;
   font-weight: 500;
   font-size: 16px;
+  display: block;
 }
 .modal__input {
   display: block;
@@ -139,10 +140,26 @@
   box-sizing: border-box;
   /* border,padding*/
 }
+
+.modal__input_type_error {
+  border: 1px solid red;
+}
+
+.modal__error {
+  color: red;
+  font-size: 12px;
+}
+
 .modal__input::placeholder {
   color: #2121214d;
 }
 
+.modal__error {
+  /* add styles*/
+  display: block;
+  color: red;
+  margin-top: 8px;
+}
 .modal__submit-btn {
   background-color: black;
   color: white;

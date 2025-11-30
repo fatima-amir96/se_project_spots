@@ -1,0 +1,5 @@
+.button_inactive {
+  background-color: #212121;
+  cursor: pointer;
+  opacity: 0.5;
+}
