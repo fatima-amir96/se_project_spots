@@ -67,16 +67,31 @@ const previewImage = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__caption");
 const previewCloseBtn = previewModal.querySelector(".modal__close-btn_preview");
 
-const cardSubmitButton = newPostForm.querySelector(".button__inactive"); //change name for button to a modal modifer
+const cardSubmitButton = newPostForm.querySelector(
+  settings.submitButtonSelector
+); //change name for button to a modal modifer
 // =========m o d a l================
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", closeOnEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", closeOnEscape);
 }
+
+function closeOnEscape(evt) {
+  if (evt.key !== "Escape") return;
+  const openedModal = document.querySelector(".modal_is-opened");
+  if (openedModal) closeModal(openedModal);
+}
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === modal) closeModal(modal);
+  });
+});
 
 // ========c a r d=================
 
@@ -158,28 +173,12 @@ newPostForm.addEventListener("submit", (evt) => {
 
   closeModal(newPostModal);
   newPostForm.reset();
-  disableButton(cardSubmitButton);
+  disableButton(cardSubmitButton, settings);
 });
 
 // ---- PREVIEW CLOSE ----
 previewCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
-});
-
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_is-opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
-});
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("mousedown", (evt) => {
-    if (evt.target === modal) {
-      closeModal(modal);
-    }
-  });
 });
 
 // ========i n i t a l - c a r d s=================
