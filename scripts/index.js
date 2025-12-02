@@ -1,5 +1,5 @@
-//pass setting onject to validation function passed in this file
-// open and close modal, modals opne when esc key is pressed, when user clicks outside modal
+//pass setting object to validation function, passed in this file
+// open and close modal, modals open when esc key is pressed, when user clicks outside modal
 // =========c o n s t================
 
 const initialCards = [
@@ -69,7 +69,7 @@ const previewCloseBtn = previewModal.querySelector(".modal__close-btn_preview");
 
 const cardSubmitButton = newPostForm.querySelector(
   settings.submitButtonSelector
-); //change name for button to a modal modifer
+);
 // =========m o d a l================
 
 function openModal(modal) {
@@ -81,17 +81,6 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
   document.removeEventListener("keydown", closeOnEscape);
 }
-
-function closeOnEscape(evt) {
-  if (evt.key !== "Escape") return;
-  const openedModal = document.querySelector(".modal_is-opened");
-  if (openedModal) closeModal(openedModal);
-}
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("mousedown", (evt) => {
-    if (evt.target === modal) closeModal(modal);
-  });
-});
 
 // ========c a r d=================
 
@@ -137,6 +126,11 @@ function getCardElement(data) {
 editProfileBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings
+  );
   openModal(editProfileModal);
 });
 
@@ -179,6 +173,17 @@ newPostForm.addEventListener("submit", (evt) => {
 // ---- PREVIEW CLOSE ----
 previewCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
+});
+
+function closeOnEscape(evt) {
+  if (evt.key !== "Escape") return;
+  const openedModal = document.querySelector(".modal_is-opened");
+  if (openedModal) closeModal(openedModal);
+}
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === modal) closeModal(modal);
+  });
 });
 
 // ========i n i t a l - c a r d s=================

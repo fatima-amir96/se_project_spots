@@ -6,6 +6,7 @@ Tripleten practice project implementing html and css to create a grid layout wit
 
 HTML
 CSS
+JavaScript
 Reponsive Design
 
 ### Deployment
@@ -17,7 +18,11 @@ Repository Link: https://github.com/fatima-amir96/se_project_spots.git
 
 You can view a short video about this project - Spots Project Webpage Build and introduction to project:
 
+Pt.1
 https://drive.google.com/file/d/139jFD7Y05HRYzocHDT1oqywRa42tkTX3/view?usp=drive_link
+
+Pt.2
+https://drive.google.com/file/d/1xtZyWHJDUd39Zmn_5b3ZmJAU3SWfy-1X/view?usp=sharing
 
 **Intro**
 
