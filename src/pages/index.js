@@ -1,7 +1,58 @@
+import { resetValidation, disableButton } from "../scripts/validation.js";
+import { enableValidation, settings } from "../scripts/validation.js";
+import "../pages/index.css";
+import {
+  logoImage,
+  profileAvatar,
+  plusIcon,
+  editIcon,
+  closeButton,
+} from "../scripts/images.js";
+
 //pass setting object to validation function, passed in this file
 // open and close modal, modals open when esc key is pressed, when user clicks outside modal
 // =========c o n s t================
 
+// WEBPack
+const avatarElement = document.querySelector(".profile__avatar");
+if (avatarElement) {
+  avatarElement.src = profileAvatar;
+}
+const logoElement = document.querySelector(".header__logo");
+if (logoElement) {
+  logoElement.src = logoImage;
+}
+const siteImages = [
+  { name: "editElement", link: editIcon },
+  { name: "plusElement", link: plusIcon },
+  { name: "closeElement", link: closeButton },
+];
+
+siteImages.forEach((item) => {
+  if (item.name === "closeElement") {
+    // Handle ALL close buttons - use querySelectorAll
+    const closeButtons = document.querySelectorAll(".modal__close-btn");
+    closeButtons.forEach((button) => {
+      const img = button.querySelector("img");
+      if (img) {
+        img.src = item.link;
+      }
+    });
+  } else {
+    // Handle edit and plus buttons as before
+    const button = document.querySelector(
+      `.profile__${item.name === "editElement" ? "edit-btn" : "add-btn"}`,
+    );
+    if (button) {
+      const img = button.querySelector("img");
+      if (img) {
+        img.src = item.link;
+      }
+    }
+  }
+});
+
+///////
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -36,17 +87,17 @@ const initialCards = [
 // ---- PROFILE ELEMENTS ----
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
-  ".profile__description"
+  ".profile__description",
 );
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
-  "#profile__name-input"
+  "#profile__name-input",
 );
 const editProfileDescriptionInput = editProfileModal.querySelector(
-  "#profile__description-input"
+  "#profile__description-input",
 );
 
 // ---- NEW POST ELEMENTS ----
@@ -68,7 +119,7 @@ const previewCaption = previewModal.querySelector(".modal__caption");
 const previewCloseBtn = previewModal.querySelector(".modal__close-btn_preview");
 
 const cardSubmitButton = newPostForm.querySelector(
-  settings.submitButtonSelector
+  settings.submitButtonSelector,
 );
 // =========m o d a l================
 
@@ -129,7 +180,7 @@ editProfileBtn.addEventListener("click", () => {
   resetValidation(
     editProfileForm,
     [editProfileNameInput, editProfileDescriptionInput],
-    settings
+    settings,
   );
   openModal(editProfileModal);
 });
@@ -194,3 +245,4 @@ initialCards.forEach((item) => {
 });
 
 console.log("Rendering cards...");
+enableValidation(settings);

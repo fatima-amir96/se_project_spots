@@ -1,6 +1,6 @@
 console.log("working");
 
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
@@ -13,7 +13,7 @@ const settings = {
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorMessageElement = formElement.querySelector(
-    `#${inputElement.id}-error`
+    `#${inputElement.id}-error`,
   );
   errorMessageElement.textContent = errorMessage;
 
@@ -23,7 +23,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
 
 const hideInputError = (formElement, inputElement, config) => {
   const errorMessageElement = formElement.querySelector(
-    `#${inputElement.id}-error`
+    `#${inputElement.id}-error`,
   );
   errorMessageElement.textContent = "";
 
@@ -37,7 +37,7 @@ const checkInputValidity = (formElement, inputElement, config) => {
       formElement,
       inputElement,
       inputElement.validationMessage,
-      config
+      config,
     );
   } else {
     hideInputError(formElement, inputElement, config);
@@ -75,7 +75,7 @@ const resetValidation = (formElement, inputList, config) => {
 const setEventListeners = (formElement, config) => {
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
   const inputList = Array.from(
-    formElement.querySelectorAll(config.inputSelector)
+    formElement.querySelectorAll(config.inputSelector),
   );
 
   // Initial button state
@@ -91,7 +91,7 @@ const setEventListeners = (formElement, config) => {
 
 // ---------------- ENABLE VALIDATION ----------------
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
 
   formList.forEach((formElement) => {
@@ -99,4 +99,4 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(settings);
+export { resetValidation, disableButton };
