@@ -6,12 +6,52 @@
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
+
+.profile__avatar-container {
+  position: relative;
+
+  /* move margin from avater image to conatiner*/
+}
+.profile__avatar-edt-btn {
+  position: absolute;
+  width: 90%;
+  height: 98%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  transition: opacity 0.3s;
+  visibility: hidden;
+  padding-bottom: 12px;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.profile__avatar-container:hover .profile__avatar-edt-btn {
+  visibility: visible;
+}
+
+.profile__avatar-edt-btn::after {
+  content: "Edit Avatar";
+  color: white;
+
+  font-size: 16px;
+  font-weight: 500;
+}
 .profile__avatar {
   margin: 0 20px 0 0;
   height: 190px;
   width: 190px;
   border-radius: 8px;
 }
+
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -95,6 +135,10 @@
     margin-bottom: 12px;
     width: 80px;
   }
+  .profile__avatar-btn {
+    visibility: visible;
+  }
+  /* set content of afterelement to "", finish styling*/
   .profile__add-btn {
     margin: 0;
     align-self: center;
