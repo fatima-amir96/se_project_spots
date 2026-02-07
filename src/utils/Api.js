@@ -1,7 +1,7 @@
 class Api {
   constructor(baseUrl, headers) {
-    this.baseUrl = baseUrl;
-    this.headers = headers;
+    this._baseUrl = baseUrl;
+    this._headers = headers;
   }
 
   getAppInfo() {
@@ -9,8 +9,8 @@ class Api {
   }
 
   getInitialCards() {
-    return fetch(`${this.baseUrl}/cards`, {
-      headers: this.headers,
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers,
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -18,9 +18,20 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+  createNewPost({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({ name, link }),
+    }).then((res) => {
+      if (res.ok) return res.json();
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
   getUserInfo() {
-    return fetch(`${this.baseUrl}/users/me`, {
-      headers: this.headers,
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -59,6 +70,8 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  //create new request function for Avatar and post
   deleteCard({ id }) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
@@ -71,6 +84,7 @@ class Api {
     });
   }
   likeStatus({ id }) {
+    // ChangelikeStaus
     const method = isliked ? "DELETE" : "PUT";
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "PUT",

@@ -24,6 +24,9 @@ https://drive.google.com/file/d/139jFD7Y05HRYzocHDT1oqywRa42tkTX3/view?usp=drive
 Pt.2
 https://drive.google.com/file/d/1xtZyWHJDUd39Zmn_5b3ZmJAU3SWfy-1X/view?usp=sharing
 
+Pt.3
+COMING SOON!
+
 **Intro**
 
 This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
