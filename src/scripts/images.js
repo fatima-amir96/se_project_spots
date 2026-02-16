@@ -4,4 +4,4 @@ import plusIcon from "../images/plus-icon.svg";
 import editIcon from "../images/pencil.svg";
 import closeButton from "../images/close-btn.svg";
 
-export { logoImage, profileAvatar, plusIcon, editIcon, closeButton };
+export default images;

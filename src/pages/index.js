@@ -9,7 +9,7 @@ const api = new Api("https://around-api.en.tripleten-services.com/v1", {
   "Content-Type": "application/json",
 });
 
-let currentUserId;
+let currentUserId; // Declare this variable
 
 // ---- PROFILE ELEMENTS ----
 const profileNameElement = document.querySelector(".profile__name");
@@ -97,6 +97,15 @@ function getCardElement(data) {
   const likeBtn = card.querySelector(".card__like-button");
   const deleteBtn = card.querySelector(".card__button-delete");
 
+  console.log("currentUserId:", currentUserId);
+  const isLiked =
+    Array.isArray(data.likes) &&
+    data.likes.some((user) => user._id === currentUserId); //.some is not working here
+
+  if (isLiked) {
+    likeBtn.classList.add("card__like-button_active");
+  }
+
   img.src = data.link;
   img.alt = data.name;
   title.textContent = data.name;
@@ -112,18 +121,50 @@ function getCardElement(data) {
     selectedCard = card;
     selectedCardId = data._id;
     openModal(deleteModal);
+    console.log("Selected ID:", selectedCardId);
   });
 
   likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("card__like-button_active");
+    console.log("liked clicked");
+    const isLiked = likeBtn.classList.contains("card__like-button_active");
+    api
+      //server call
+      .likeStatus({
+        id: data._id,
+        isLiked: likeBtn.classList.contains("card__like-button_active"),
+      })
+      .then((updatedCard) => {
+        // likeBtn.classList.toggle("card__like-button_active");
+        // Use server response to set correct state
+        const userLiked = updatedCard.likes.some(
+          (user) => user._id === currentUserId,
+        );
+
+        if (userLiked) {
+          likeBtn.classList.add("card__like-button_active");
+        } else {
+          likeBtn.classList.remove("card__like-button_active");
+        }
+      })
+      .catch((err) => console.log(err));
   });
 
   return card;
 }
 
 // ========= DELETE =========
+const cancelBtn = deleteModal.querySelector(".modal__cancel-btn");
+
+cancelBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
 deleteForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
+  const btn = evt.submitter;
+  btn.textContent = "Deleting...";
+  btn.disabled = true;
 
   api
     .deleteCard(selectedCardId)
@@ -131,7 +172,11 @@ deleteForm.addEventListener("submit", (evt) => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      btn.textContent = "Delete";
+      btn.disabled = false;
+    });
 });
 
 deleteModalCloseBtn.addEventListener("click", () => closeModal(deleteModal));
@@ -178,7 +223,12 @@ editProfileCloseBtn.addEventListener("click", () =>
 );
 
 // ========= NEW POST =========
-newPostBtn.addEventListener("click", () => openModal(newPostModal));
+newPostBtn.addEventListener("click", () => {
+  //resetValidation(newPostForm, [inputLink, inputCap], settings);
+
+  openModal(newPostModal);
+});
+
 newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
 
 newPostForm.addEventListener("submit", (evt) => {
@@ -213,6 +263,7 @@ const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
 
 avatarBtn.addEventListener("click", () => {
   avatarInput.value = profileAvatarElement.src;
+  resetValidation(avatarForm, [avatarInput], settings);
   openModal(avatarModal);
 });
 
@@ -252,45 +303,6 @@ document.querySelectorAll(".modal").forEach((modal) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });*/
-
-// WEBPack
-const avatarElement = document.querySelector(".profile__avatar");
-if (avatarElement) {
-  avatarElement.src = profileAvatar;
-}
-const logoElement = document.querySelector(".header__logo");
-if (logoElement) {
-  logoElement.src = logoImage;
-}
-const siteImages = [
-  { name: "editElement", link: editIcon },
-  { name: "plusElement", link: plusIcon },
-  { name: "closeElement", link: closeButton },
-];
-
-siteImages.forEach((item) => {
-  if (item.name === "closeElement") {
-    // Handle ALL close buttons - use querySelectorAll
-    const closeButtons = document.querySelectorAll(".modal__close-btn");
-    closeButtons.forEach((button) => {
-      const img = button.querySelector("img");
-      if (img) {
-        img.src = item.link;
-      }
-    });
-  } else {
-    // Handle edit and plus buttons as before
-    const button = document.querySelector(
-      `.profile__${item.name === "editElement" ? "edit-btn" : "add-btn"}`,
-    );
-    if (button) {
-      const img = button.querySelector("img");
-      if (img) {
-        img.src = item.link;
-      }
-    }
-  }
-});
 
 console.log("Rendering cards...");
 enableValidation(settings);
