@@ -12,6 +12,7 @@ export const settings = {
 // ---------------- ERROR HANDLING ----------------
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
+  console.log(formElement, config);
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`,
   );

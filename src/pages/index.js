@@ -98,13 +98,19 @@ function getCardElement(data) {
   const deleteBtn = card.querySelector(".card__button-delete");
 
   console.log("currentUserId:", currentUserId);
-  const isLiked =
+  /*const isLiked =
     Array.isArray(data.likes) &&
-    data.likes.some((user) => user._id === currentUserId); //.some is not working here
+    data.isLiked.some((user) => user._id === currentUserId); //.some is not working here
 
   if (isLiked) {
     likeBtn.classList.add("card__like-button_active");
   }
+    
+likeBtn.classList.toggle("card__like-button_active", isLiked);*/
+
+  const isInitiallyLiked = data.isLiked;
+  //remove isLIked doesnt
+  likeBtn.classList.toggle("card__like-button_active", isInitiallyLiked);
 
   img.src = data.link;
   img.alt = data.name;
@@ -124,29 +130,25 @@ function getCardElement(data) {
     console.log("Selected ID:", selectedCardId);
   });
 
+  //likeBtn.addEventListener(("click"), (evt) ==> handleLike(evt, data._id));
+  //steps from memory:1) check if card isLiked, was it initallyliked?
+  // 3)toggle between like and unlike 4)update card 5) send update to server
+  // 6) recall like
   likeBtn.addEventListener("click", () => {
-    console.log("liked clicked");
     const isLiked = likeBtn.classList.contains("card__like-button_active");
+
     api
-      //server call
       .likeStatus({
         id: data._id,
-        isLiked: likeBtn.classList.contains("card__like-button_active"),
+        isLiked: isLiked,
       })
       .then((updatedCard) => {
-        // likeBtn.classList.toggle("card__like-button_active");
-        // Use server response to set correct state
-        const userLiked = updatedCard.likes.some(
-          (user) => user._id === currentUserId,
+        likeBtn.classList.toggle(
+          "card__like-button_active",
+          updatedCard.isLiked,
         );
-
-        if (userLiked) {
-          likeBtn.classList.add("card__like-button_active");
-        } else {
-          likeBtn.classList.remove("card__like-button_active");
-        }
       })
-      .catch((err) => console.log(err));
+      .catch(console.error);
   });
 
   return card;
@@ -172,10 +174,12 @@ deleteForm.addEventListener("submit", (evt) => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error)
+    .catch((err) => {
+      console.error(err);
+      btn.disabled = false;
+    })
     .finally(() => {
       btn.textContent = "Delete";
-      btn.disabled = false;
     });
 });
 
