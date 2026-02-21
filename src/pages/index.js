@@ -176,10 +176,10 @@ deleteForm.addEventListener("submit", (evt) => {
     })
     .catch((err) => {
       console.error(err);
-      btn.disabled = false;
     })
     .finally(() => {
       btn.textContent = "Delete";
+      btn.disabled = false;
     });
 });
 
@@ -215,10 +215,12 @@ editProfileForm.addEventListener("submit", (evt) => {
       profileDescriptionElement.textContent = data.about;
       closeModal(editProfileModal);
     })
-    .catch(console.error)
+    .catch((err) => {
+      console.error(err);
+      btn.disabled = false;
+    })
     .finally(() => {
       btn.textContent = "Save";
-      btn.disabled = false;
     });
 });
 
@@ -251,10 +253,12 @@ newPostForm.addEventListener("submit", (evt) => {
       newPostForm.reset();
       closeModal(newPostModal);
     })
-    .catch(console.error)
+    .catch((err) => {
+      console.error(err);
+      btn.disabled = false;
+    })
     .finally(() => {
       btn.textContent = "Save";
-      btn.disabled = false;
     });
 });
 
@@ -283,10 +287,12 @@ avatarForm.addEventListener("submit", (evt) => {
       profileAvatarElement.src = data.avatar;
       closeModal(avatarModal);
     })
-    .catch(console.error)
+    .catch((err) => {
+      console.error(err);
+      btn.disabled = false;
+    })
     .finally(() => {
       btn.textContent = "Save";
-      btn.disabled = false;
     });
 });
 

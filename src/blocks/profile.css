@@ -12,6 +12,17 @@
 
   /* move margin from avater image to conatiner*/
 }
+
+.profile-avatar-input {
+  display: block;
+  color: red;
+  margin-top: 8px;
+}
+
+.profile-avatar-input-error {
+  border: 1px solid red;
+}
+
 .profile__avatar-edt-btn {
   position: absolute;
   width: 90%;
