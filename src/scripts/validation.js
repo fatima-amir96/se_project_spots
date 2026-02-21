@@ -1,7 +1,7 @@
 console.log("working");
 
 export const settings = {
-  formSelector: ".modal__form",
+  formSelector: ".modal__form:not(.modal__form_type_delete)", //note: js was attempting to validate delete
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
   inactiveButtonClass: "modal__button_disabled",
@@ -12,6 +12,7 @@ export const settings = {
 // ---------------- ERROR HANDLING ----------------
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
+  console.log(formElement, config);
   const errorMessageElement = formElement.querySelector(
     `#${inputElement.id}-error`,
   );

@@ -16,13 +16,16 @@ This webpage is deployed to Github Pages.
 Deployment Link: https://fatima-amir96.github.io/se_project_spots/index.html
 Repository Link: https://github.com/fatima-amir96/se_project_spots.git
 
-You can view a short video about this project - Spots Project Webpage Build and introduction to project:
+You can view a short video about this project:
 
-Pt.1
+Pt.1 Spots Project Webpage Build and introduction
 https://drive.google.com/file/d/139jFD7Y05HRYzocHDT1oqywRa42tkTX3/view?usp=drive_link
 
-Pt.2
+Pt.2 Modals
 https://drive.google.com/file/d/1xtZyWHJDUd39Zmn_5b3ZmJAU3SWfy-1X/view?usp=sharing
+
+Pt.3 Webpack and Server
+(https://drive.google.com/file/d/1_5h5PnhbtlTxZM-OJFnaQIfEN6CoUcBS/view?usp=sharing)
 
 **Intro**
 

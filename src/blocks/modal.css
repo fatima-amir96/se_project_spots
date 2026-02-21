@@ -14,7 +14,10 @@
   padding: 0 10px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
 }
 .modal_is-opened {
   visibility: visible;
@@ -30,12 +33,18 @@
   padding: 32px 50px;
   position: relative;
   box-sizing: border-box;
+  font-size: 24px;
 }
 
 .modal__image-container {
   position: relative;
   transform: scale(0.95);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 /*added some transitions for opening preview*/
 .modal_is-opened .modal__image-container {
@@ -56,10 +65,8 @@
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 20px;
 
-  bottom: 12px;
-  left: 12px;
   margin: 0;
-  position: absolute;
+
   border-radius: 8px;
 
   margin-top: 8px;
@@ -152,6 +159,41 @@
   color: red;
   margin-top: 8px;
 }
+.delete__btn-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.modal__close-btn-delete {
+  top: 0;
+  right: -52.5px;
+}
+.modal__cancel-btn {
+  background-color: white;
+  color: black;
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.modal__delete-btn {
+  background-color: black;
+  color: white;
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal__delete-btn:hover {
+  background-color: rgba(255, 101, 101, 1);
+  color: black;
+}
+
 .modal__submit-btn {
   background-color: black;
   color: white;
@@ -163,7 +205,9 @@
 }
 .modal__submit-btn:hover {
   cursor: pointer;
-  transition: background-color 0.15s ease, opacity 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.15s ease;
   background-color: #212121;
 }
 
